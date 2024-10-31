@@ -22,7 +22,7 @@ export default App;
 function MyComponent(props) {
     return(
         <div>
-            {props.propValue},                   {props.children}
+            {props.propValue}, {props.children}
         </div>
 
     );
@@ -39,13 +39,15 @@ props의 자료형은 자바스크립트의 자료형을 모두 사용 가능합
 
  문자열 이외 타입의 프로퍼티 
 - 문자열 타입 이외의 프로퍼티 값은 중괄호({ })를 사용합니다. 
-
+```
 <MyComponent 
 	boolProp= {true} //boolean
 	arrProp= {['a','b','c']} //배열
 	objProp= {{name:'코딩젤리', title:'헬로리액트!'}} //객체
 	funcProp= {() => { alert('알림창'); }}  //함수 
 />
+```
+
 ### Prop Drilling이란?
 Prop Drilling 은 props를 오로지 하위 컴포넌트로 전달하는 용도로만 쓰이는 컴포넌트들을 거치면서 React Component 트리의 한 부분에서 다른 부분으로 데이터를 전달하는 과정입니다.
 
@@ -58,7 +60,7 @@ Prop Drilling 은 props를 오로지 하위 컴포넌트로 전달하는 용도�
 
 
 ### createContext 사용
-
+### Redux 사용 ( 권장 X )
 ```
 import { createContext } from "react";
 
@@ -80,3 +82,12 @@ useContext를 사용하여 변수 불러오고 사용하기
 ```
   const { inputValue } = useContext(InputContext);
 ```
+### Redux를 권장하지 않는 이유
+1. 초기 설정이 많고 복잡하기 때문입니다
+	- Redux를 사용하려면 각 상태 변화를 정의하는 액션과 상태를 업데이트하는 리듀서를 구성해야 하고
+	- 애플리케이션 전체에서 사용할 수 있도록 스토어를 만들어야 하며, 이 스토어를 최상위 컴포넌트에 Provider로 감싸주는 설정이 필요합니다.
+2. 보일러플레이트 코드가 많습니다.
+	- 상태 변경을 위한 액션 타입과 크리에이터, 리듀서 작성 등 여러 파일과 코드 구성이 필요합니다. 이로 인해 프로젝트의 초기 코드 양이 많아집니다.
+
+
+#### [ContextAPI 공식문서] (https://react.dev/reference/react/createContext)
