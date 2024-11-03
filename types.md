@@ -37,6 +37,14 @@ let hero: Avengers = Avengers.SpiderMan;
 let hero: Avengers = Avengers[0];
 ```
 
+#### 타입 - Void
+일반적으로 함수에서 반환값이 없을 경우 사용
+```
+function warnUser(): void {
+	console.log("This is my warning message");
+}
+```
+
 
 #### 타입 - Any
 any 타입은 단어 의미 그대로 모든 타입에 대해서 허용한다는 의미이다.
@@ -83,6 +91,13 @@ let person = {
 };
 
 logUser(person);
+```
+
+#### 함수(function) 타입 정의하기
+```
+function sum(a: 인자타입, b: 인자타입): 반환값타입 {
+	return a + b;
+}
 ```
 
 공부 출처
