@@ -105,7 +105,7 @@ useContext를 사용하여 변수 불러오고 사용하기
 
 EX: 
 #### 하위컴포넌트
-```tsx
+```jsx
 funtion ChildrenComponent({onSendMessage}: interfaceName) {
 ```
 ```tsx
@@ -132,7 +132,7 @@ interface interfaceName {
     setData(data);
   };
 ```
-```tsx
+```jsx
 <ChildrenComponent onSendMessage={receiveMessage />
 ```
 
