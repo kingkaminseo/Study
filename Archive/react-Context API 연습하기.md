@@ -8,7 +8,7 @@
 props(property)란 상위 컴포넌트가 하위 컴포넌트에 값을 전달할 때 사용하는 속성입니다.
 props 사용 예시:
 ( 상위 컴포넌트 )
-```
+```jsx
 function App() {
     return(
          <MyComponent propValue="헬로 리액트!">Bye 리액트!</MyComponent>
@@ -18,7 +18,7 @@ export default App;
 ```
 
 ( 하위 컴포넌트로 값 이동 )
-```
+```jsx
 function MyComponent(props) {
     return(
         <div>
@@ -39,7 +39,7 @@ props의 자료형은 자바스크립트의 자료형을 모두 사용 가능합
 
  문자열 이외 타입의 프로퍼티 
 - 문자열 타입 이외의 프로퍼티 값은 중괄호({ })를 사용합니다. 
-```
+```tsx
 <MyComponent 
 	boolProp= {true} //boolean
 	arrProp= {['a','b','c']} //배열
@@ -61,7 +61,7 @@ Prop Drilling 은 props를 오로지 하위 컴포넌트로 전달하는 용도�
 
 ## createContext 사용
 ### Redux 사용 ( 권장 X )
-```
+```jsx
 import { createContext } from "react";
 
 export const InputContext = createContext("");
@@ -71,7 +71,7 @@ export const InputContext = createContext("");
 
 ex:
 
-```
+```jsx
 const [inputValue, setInputValue] = useState("");
 
 <InputContext.Provider value={{ inputValue, setInputValue }}>
@@ -79,7 +79,7 @@ const [inputValue, setInputValue] = useState("");
 
 useContext를 사용하여 변수 불러오고 사용하기
 
-```
+```jsx
   const { inputValue } = useContext(InputContext);
 ```
 ## Redux를 권장하지 않는 이유
@@ -105,34 +105,34 @@ useContext를 사용하여 변수 불러오고 사용하기
 
 EX: 
 #### 하위컴포넌트
-```
+```tsx
 funtion ChildrenComponent({onSendMessage}: interfaceName) {
 ```
-```
+```tsx
   const sendMessageToParent = () => {
     onSendMessage('data' as type);
   };
 ```
-```
+```tsx
 <button
          onClick={() => {
          sendMessageToParent();
        }}
 />
 ```
-```
+```tsx
 interface interfaceName {
 	onSendMessage: (data: type) => void
 }
 ```
 
 #### 상위컴포넌트
-```
+```tsx
   const receiveMessage = (data: string) => {
     setData(data);
   };
 ```
-```
+```tsx
 <ChildrenComponent onSendMessage={receiveMessage />
 ```
 
