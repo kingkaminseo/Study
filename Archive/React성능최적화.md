@@ -15,7 +15,8 @@ React.lazy는 처음 렌더링될 때 모든 컴포넌트를 한 번에 로드�
 이는 웹성능과 UX적으로 큰 문제이다. 이를 loading lazy로 해결하여 로딩 시간을 크게 단축하였다.
 
 ## Lazy-loading 사용하기
-
+lazy함수를 사용하기 위해 필요한 라이브러리인 `React`를 불러오고 이후 `React.lazy()`를 사용하여 필요한 컴포넌트를 불러오면 된다.
+ex
 ```jsx
 import React from 'react';
 // Lazy 함수를 불러오기 위한 React 라이브러리 불러오기
@@ -23,6 +24,7 @@ import React from 'react';
 const LazyComponent = React.lazy(() => import('./LazyComponent'));
 // Lazy로 컴포넌트를 불러옴
 ```
+이후에는 평범한 컴포넌트 처럼 사용할 수 있다.
 ```jsx
 function App() {
   return (
