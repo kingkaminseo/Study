@@ -37,5 +37,49 @@ function App() {
 
 export default App;
 ```
+React.lazy를 사용하면 <LazyComponent /> 컴포넌트를 지연 로딩할 수 있어 초기 로딩 속도를 개선할 수 있다..<br/>
+또한, Lazy Loading과 함께 컴포넌트가 로딩되는 동안 대체 UI를 보여주는 Suspense API를 함께 사용할 수 있다.
+## Suspense 배우기
+Suspense 컴포넌트를 사용하면 자식요소가 로드되기 전까지 화면에 대체 UI를 보여준다.
+```jsx
+<Suspense fallback={<Loading />}> 
+  <ChildrenComponent />
+</Suspense>
+```
+1. children
+여기서 chilren 즉 Suspense의 하위컴포넌트는 렌더링하려는 실제 UI이다.
+2. fallback
+Suspense의 하위컴포넌트인 ChildrenComponent 컴포넌트가 렌더링이 지연되면 로드하는 동안 fallback에 있는 <Loading />컴포넌트를 보여주어 대체 UI로 렌더링 하여 보여준다.
 
-## Suspense 이란?
+suspense는 children의 렌더링이 지연되면 자동으로 fallback으로 전환하고, 데이터가 준비되면 children으로 다시 전환합니다.
+만약 fallback이 렌더링이 지연되면 가장 가까운 부모 Suspense가 활성화 된다고 한다.
+
+### 동시로딩 구현
+SUspense의 하위컴포넌트로 a와 b가 있다면 둘 중 하나의 컴포넌트가 먼저 로드되더라도 지연시켜 모든컴포넌트들이 한꺼번에 보여지게 한다.
+```jsx
+<Suspense fallback={<Loading />}> 
+  <a />
+  <b />
+</Suspense>
+```
+
+### 중첩된 콘텐츠 로드될 때 보여주기 구현
+```jsx
+<Suspense fallback={<BigSpinner />}>
+  <Biography />
+  <Suspense fallback={<AlbumsGlimmer />}>
+    <Panel>
+      <Albums />
+    </Panel>
+  </Suspense>
+</Suspense>
+```
+이런식으로 사용한다면 <Biography />를 보여줄 떄 <Albums /> 컴포넌트가 로드될 떄까지 기다릴 필요가 없다.
+
+#### 순서
+1. Biography가 아직 로드되지 않은 경우, 전체 콘텐츠 영역 대신 BigSpinner가 표시됩니다.
+2. Biography의 로딩이 완료되면 BigSpinner가 콘텐츠로 대체됩니다.
+3. Albums가 아직 로드되지 않으면 Albums와 그 상위 Panel 대신 AlbumsGlimmer가 표시됩니다.
+4. 마지막으로 Albums가 로딩을 완료하면 AlbumsGlimmer를 대체합니다.
+
+Albums 컴포넌트를 가져오기 위한 Suspense의 falllback인 AlbumsGlimmer컴포넌트가 로딩 지연된다면 다 로드될 때까지 상위 suspense를 보여주게 된다.
