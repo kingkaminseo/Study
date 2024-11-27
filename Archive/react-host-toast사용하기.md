@@ -119,6 +119,10 @@ toast.success('Look at my styles.', {
   },
 });
 ```
+<br />
+더 자세한 정보는 공식 사이트에서 확인해보도록 하자<br />
+[react-hot-toast 공식 사이트](https://react-hot-toast.com/)
+<br />
 
 ## 느낀점
 원래 alert과 모달만 쓰다가 이런 것들을 알게 되어 많이 사용할 것 같고 사용법도 쉽고 기능에 따라 다양하게 사용할 수 있어서
