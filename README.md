@@ -13,3 +13,4 @@
 | **[formData 공부](Archive/formData공부.md)** <br>tsx의 formData를 다루는 법을 공부하여 fromData에 이미지를 넣어서 API에 Req를 보내보고 이미지 미리보기 로직을 구현함. | 2024.11.21 |
 | **[state 리렌더링 공부](Archive/렌더링과변수의관계.md)** <br>일반변수와 스코프의 관계, 상태(state)와 리렌더링의 관계에 대해서 공부함. | 2024.11.22 |
 | **[Loading 관련 React 성능최적화 공부](Archive/React성능최적화.md)** <br>React 성능최적화 도구인 Lazy Loading, Suspense, Code Splitting를 공부함. | 2024.11.23, 2024.11.25 |
+| **[React로 토스트메세지 구현하기](Archive/react-host-toast사용하기.md)** <br>React-hot-toast를 사용하여 토스트를 구현하고 상황에 따라 알맞게 쓰는 법을 공부함. | 2024.11.26 |
