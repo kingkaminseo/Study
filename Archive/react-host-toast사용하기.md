@@ -2,9 +2,12 @@
 먼저 react-host-toast 를 배우기 전에 Toast를 모르는 사람들을 위해 토스트가 뭔지, 왜 쓰는 지, 그리고 react-host-toast를 선택한 이유를 먼저 선택하겠다. 
 ## Toast Message란?
 사용자에게 간단한 정보를 잠깐 보여주는 UI 요소이다.
-말 그대로 잠깐동안만 보여줄 것이기에 불필요하게 번잡한 모달이나 확인버튼을 눌러야 되고 커스텀도 안되는 alert 이런거 안쓰고 Toast 쓰면 된다.
-![image](https://github.com/user-attachments/assets/58baefaf-9672-43e1-a8f8-7b61d8acba0f)
-대충 유저가 어떤 액션을 취하면 그에 대한 간단한 정보를 위 사진 처럼 보여주는 게 토스트메세지 이다.
+말 그대로 잠깐동안만 보여줄 것이기에 불필요하게 번잡한 모달이나 확인버튼을 눌러야 되고 커스텀도 안되는 alert 이런거 안쓰고 Toast 쓰면 된다.<br/>
+<br/>
+***ex: 예시*** <br />
+***![image](https://github.com/user-attachments/assets/58baefaf-9672-43e1-a8f8-7b61d8acba0f)***<br/>
+<br/>
+대충 유저가 어떤 액션을 취하면 그에 대한 간단한 정보를 위 사진 처럼 보여주는 게 토스트메세지 이다.<br/>
 
 리액트에서 Toast의 대표적인 라이브러리로 `react-hot-toast`, `react-toastify` 가 있는데 이 중 react-hot-toasts에 대해 알아보겠다.
 
@@ -92,12 +95,31 @@ toast('Hello Darkness!',
 );
 ```
 
-3. 포지션 커스텀 ( top-left, top-center, top-right, bottom-left, bottom-center, bottom-right )
+3. 포지션 커스텀<br /> ( top-left, top-center, top-right, bottom-left, bottom-center, bottom-right )
     position = toast 생성 위치를 커스텀할 수 있다. 
-   reverseOrder = toast 정렬을 커스텀 할 수 있다. ( 신규 토스트를 이전 토스트 위로 true = 하나하나 쌍이게 됨, flase = 밑으로 들어가서 하나씩 추가되는 느낌 )
+   reverseOrder = toast 정렬을 커스텀 할 수 있다. ( true = 위로 하나하나 쌍이게 됨, flase = 밑으로 들어가서 하나씩 추가되는 느낌 )
 ```jsx
 <Toaster
   position="top-left"
   reverseOrder={true}
 />
 ```
+
+4. Themed 커스텀
+```jsx
+toast.success('Look at my styles.', {
+  style: {
+    border: '1px solid #713200',
+    padding: '16px',
+    color: '#713200',
+  },
+  iconTheme: {
+    primary: '#713200',
+    secondary: '#FFFAEE',
+  },
+});
+```
+
+## 느낀점
+원래 alert과 모달만 쓰다가 이런 것들을 알게 되어 많이 사용할 것 같고 사용법도 쉽고 기능에 따라 다양하게 사용할 수 있어서
+유용할 것 같다.
