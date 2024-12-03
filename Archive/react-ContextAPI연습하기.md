@@ -60,7 +60,6 @@ Prop Drilling 은 props를 오로지 하위 컴포넌트로 전달하는 용도�
 
 
 ## createContext 사용
-### Redux 사용 ( 권장 X )
 ```jsx
 import { createContext } from "react";
 
