@@ -11,7 +11,7 @@ props 사용 예시:
 ```jsx
 function App() {
     return(
-         <MyComponent propValue="헬로 리액트!">Bye 리액트!</MyComponent>
+         <MyComponent propValue="헬로 리액트!" />
     );
 }
 export default App;
@@ -19,11 +19,11 @@ export default App;
 
 ( 하위 컴포넌트로 값 이동 )
 ```jsx
-function MyComponent(props) {
+function MyComponent(propValue) {
     return(
-        <div>
-            {props.propValue}, {props.children}
-        </div>
+        <p>
+            {propValue}
+        </p>
 
     );
 }
@@ -60,10 +60,16 @@ Prop Drilling 은 props를 오로지 하위 컴포넌트로 전달하는 용도�
 
 
 ## createContext 사용
-```jsx
-import { createContext } from "react";
+```tsx
+interface UserContextType {
+  text: string;
+  setText: React.Dispatch<React.SetStateAction<string>>;
+}
 
-export const InputContext = createContext("");
+export const InputContext = createContext<UserContextType>(
+  {} as UserContextType
+);
+
 ```
 
 ### 루트컴포넌트에 저장한 Context를 불러온 후 Provider에 사용할 변수 저장시키기
