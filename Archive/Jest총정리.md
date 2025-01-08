@@ -32,6 +32,8 @@ React로 로직 계획을 세우고 구현하면서 복잡한 로직 같은 경�
 
 # 테스트 코드의 종류
 ![image](https://github.com/user-attachments/assets/1a1d431f-ca80-44f5-883f-4455b5fbf335)
+
+테스트 코드의 종류로 단위테스트, 통합테스트 그리고 SIT 테스트가 있다.
    
 #Jest 란?
 Jest는 페이스북에서 React와 같이 만들어서 많은 개발자들에게 꾸준한 인기를 얻고 있는 테스팅 프레임워크 입니다.
@@ -41,3 +43,4 @@ ex : Test Runner - Mocha, Jasmin
 
 하지만 Jest는 이러한 문제점을 완벽히 보완하여 Test Runner, Test Matcher, Test Mock 등 프레임워크를 모두 제공합니다.
 단위 테스트와 톨합 테스트를 효율적으로 처리하고 문서화 할 수 있습니다.
+J
