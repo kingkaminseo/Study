@@ -10,53 +10,53 @@ private static 오직 자기 자신 클래스 내부에서만 사용이 가능�
 ```tsx
 class socket {
   // 웹소켓 연결 함수
-  // private static instance: any | null = null;
+  private static instance: any | null = null;
   static connect = () => {
-    if (!instance) {
+    if (!this.instance) {
       console.log('[WEB SOCKET] Connect 했음');
-      instance = io(SOCKET_URL, {
+      this.instance = io(SOCKET_URL, {
         transports: ['websocket'],
       });
 
-      instance.on('connect', () => {
+      this.instance.on('connect', () => {
         console.log('Connect');
       });
 
-      instance.on('connect_error', (error: any) => {
+      this.instance.on('connect_error', (error: any) => {
         console.error('error:', error);
       });
     }
-    return instance;
+    return this.instance;
   };
 
   static disconnect = () => {
-    if (instance) {
-      instance.disconnect();
+    if (this.instance) {
+      this.instance.disconnect();
       console.log('disconnect');
-      instance = null;
+      this.instance = null;
     } else {
       Toast.error('이미 없음');
     }
   };
 
   static createDevice = (phoneNumber: string) => {
-    if (instance) {
-      instance.emit('CreateDevice', {
+    if (this.instance) {
+      this.instance.emit('CreateDevice', {
         relayServerAddr: SOCKET_URL,
         phoneNumber,
       });
-      console.log('CreateDevice', instance, phoneNumber);
+      console.log('CreateDevice', this.instance, phoneNumber);
     }
   };
   static MakeCall = (phoneNumberCust: string) => {
     // 이게 전화 상태인 듯 (2 이거나 -6 일때만 전화를 걸고 아니면 전화를 걸게 하면 안됌)
     // stateConnect == 2 || stateConnect == -6
 
-    if (instance) {
-      instance.emit('real cick', {
+    if (this.instance) {
+      this.instance.emit('real cick', {
         phoneNumberCust,
       });
-      console.log('MakeCall', instance, phoneNumberCust);
+      console.log('MakeCall', this.instance, phoneNumberCust);
     }
   };
 }
