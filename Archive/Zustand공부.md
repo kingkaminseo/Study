@@ -1,4 +1,5 @@
 # Zustand에 대해서🐻
+![bear](https://github.com/user-attachments/assets/114bfeab-4d82-41ec-840b-96018155aa29)
 
 ### Zustand란?
 Zustand는 React의 최신 상태관리 라이브러리 이다.<br/>
@@ -22,5 +23,44 @@ Zustand는 React의 최신 상태관리 라이브러리 이다.<br/>
      - 복잡한 로직하기 살짝 까다로움
 2. 이미 Redux가 표준화 되어있어 대규모 프로젝트에 사용하기 안좋을 수 있음
 
-안쓸 이유가 없는 <br/>
+<br/>
+<br/>
+
+안쓸 이유가 없는 짱짱 Zustand의 사용법에 대해 알아보겠습니다. <br/>
 ~~리덕스에 대해서는 자세히 풀지 않겠습니다. 다른데가서 공부하쇼~~
+
+## Zustand 사용하기
+
+### 설치하기
+```bash
+npm install zustand
+```
+
+### Store 만들기
+```tsx         
+import { create } from 'zustand'
+
+type Store = {
+  count: number
+  inc: () => void
+}
+
+const useStore = create<Store>((set) => ({
+  count: 1,
+  inc: () => set((state) => ({ count: state.count + 1 })),
+}))
+```
+
+### 컴포넌트에 바인딩하여 사용하기
+```tsx
+function Counter() {
+  const { count, inc } = useStore()
+  return (
+    <div>
+      <span>{count}</span>
+      <button onClick={inc}>one up</button>
+    </div>
+  )
+}
+
+```
