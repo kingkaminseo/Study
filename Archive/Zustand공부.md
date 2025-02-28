@@ -38,20 +38,22 @@ npm install zustand
 
 ### Store 만들기
 ```tsx         
-import { create } from 'zustand'
+import { create } from "zustand";
 
-type Store = {
-  count: number
-  inc: () => void
+interface IStore {
+  count: number;
+  inc: () => void;
 }
 
-const useStore = create<Store>((set) => ({
+const useStore = create<IStore>((set) => ({
   count: 1,
   inc: () => set((state) => ({ count: state.count + 1 })),
-}))
+}));
+export default useStore;
 ```
 
 ### 컴포넌트에 바인딩하여 사용하기
+#### 권장 X
 ```tsx
 function Counter() {
   const { count, inc } = useStore()
@@ -64,3 +66,26 @@ function Counter() {
 }
 
 ```
+위 방법처럼 콜백없이 스토어 훅을 호출하면 개별 상태나 액션이 아닌 스토어 객체를 얻을 수 있지만, <br />
+사용하지 않는 상태 등이 변경되어도 컴포넌트가 리렌더링 되기 때문에 위 방법은 권장하지 않는다.
+
+#### 권장 O
+```tsx
+import useStore from "./store/store"
+
+function App() {
+  const count = useStore(state => state.count)
+  const inc = useStore(state => state.inc)
+  return (
+    <>
+      <h2>{count}</h2>
+      <button onClick={inc}>+</button>
+    </>
+  );
+}
+
+export default App;
+```
+위 방법은 useStore에서 제공하는 패턴방식중 하나이다.
+useStore에 state에서 필요한 값만 추출하여 사용하기에 불필요한 리렌더링을 방지하고 필요한 값만 선택적으로 사용할 수 있습니다.
+현재 위 방법을 권장하고 있습니다.
