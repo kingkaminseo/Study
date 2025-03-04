@@ -27,7 +27,7 @@ Zustand는 React의 최신 상태관리 라이브러리 이다.<br/>
 <br/>
 
 안쓸 이유가 없는 짱짱 Zustand의 사용법에 대해 알아보겠습니다. <br/>
-~~리덕스에 대해서는 자세히 풀지 않겠습니다. 다른데가서 공부하쇼~~
+~~리덕스나 상태관리 라이브러리에 대해서는 자세히 풀지 않겠습니다. 다른데가서 공부하쇼~~
 
 ## Zustand 사용하기
 
@@ -40,27 +40,62 @@ npm install zustand
 ```tsx         
 import { create } from "zustand";
 
-interface IStore {
+interface IStoreTypes {
   count: number;
-  inc: () => void;
+  increase: () => void;
+  decrease: () => void;
+  reset: () => void;
 }
 
-const useStore = create<IStore>((set) => ({
-  count: 1,
-  inc: () => set((state) => ({ count: state.count + 1 })),
+const useCountStore = create<IStoreTypes>((set) => ({
+  count: 0,
+  increase: () => set((state) => ({ count: state.count + 1 })),
+  decrease: () => set((state) => ({ count: state.count - 1 })),
+  reset: () => set((state) => ({ count: 0 })),
 }));
-export default useStore;
+
+export default useCountStore;
 ```
+### get 파라미터 사용하여 Store 만들기
+```tsx
+import { create } from "zustand";
+
+interface IStoreTypes {
+  count: number;
+  increase: () => void;
+  decrease: () => void;
+  reset: () => void;
+}
+
+const useCountStore = create<IStoreTypes>((set, get) => ({
+  count: 0,
+  increase: () => {
+    const { count } = get();
+    set({ count: count + 1 });
+  },
+  decrease: () => {
+    const { count } = get();
+    set({ count: count - 1 });
+  },
+  reset: () => {
+    set({ count: 0 });
+  },
+}));
+
+export default useCountStore;
+
+```
+get 함수를 호출하면, 상태와 액션을 가진 스토어 객체(state)를 불러올 수 있다.
+set 함수를 호출(변경할 상태를 속성으로 포함한 객체를 전달)하면, 상태를 변경할 수 있다.
 
 ### 컴포넌트에 바인딩하여 사용하기
 #### 권장 X
 ```tsx
 function Counter() {
-  const { count, inc } = useStore()
+  const { count } = useCountStore()
   return (
     <div>
       <span>{count}</span>
-      <button onClick={inc}>one up</button>
     </div>
   )
 }
@@ -71,21 +106,16 @@ function Counter() {
 
 #### 권장 O
 ```tsx
-import useStore from "./store/store"
-
-function App() {
-  const count = useStore(state => state.count)
-  const inc = useStore(state => state.inc)
+function Counter() {
+  const count = useCountStore((state) => state.count);
   return (
-    <>
-      <h2>{count}</h2>
-      <button onClick={inc}>+</button>
-    </>
+    <div>
+      <span>{count}</span>
+    </div>
   );
 }
-
-export default App;
 ```
 위 방법은 useStore에서 제공하는 패턴방식중 하나이다.
 useStore에 state에서 필요한 값만 추출하여 사용하기에 불필요한 리렌더링을 방지하고 필요한 값만 선택적으로 사용할 수 있습니다.
 현재 위 방법을 권장하고 있습니다.
+
