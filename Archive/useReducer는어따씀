@@ -1,0 +1,10 @@
+# useReducer 왜씀?
+
+useReducer는 React에 상태관리 Hook입니다.
+그런데 문득 이런생각이 들죠
+
+1. 아니 왜 useState 납두고 useReducer 씀?
+2. 둘다 똑같은 상태관리 훅 아님?
+3. useState다 어려운데 걍 useState 쓰면 안됌?
+
+이러한 고민을 한번쯤을 해봤을 것 이다.
