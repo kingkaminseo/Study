@@ -23,4 +23,4 @@
 | **[ Web Socket 사용해보기 🎯 ( 이론 편 )](Archive/websocket이론편.md)** <br>Soket에 대한 이론을 정리함.  | 2025.02.08 ~ 2025.02.10 |
 | **[힙한🤘 Zustand🐻 라이브러리 공부하기](Archive/Zustand공부.md)** <br>Zustand 라이브러리에 대해 공부함.  | 2025.02.27|
 | **[미루고 미루던 스탭회원가입 만들어보기](Archive/스탭회원가입폼.md)** <br>스탭 회원가입 기능 구현함.  | 2025.03.07|
-| **[ReactQuery 마스터 하기😎](Archive/reactQuery사용하기.md)** <br>ReactQuery를 사용하여 공부함.  | 2025.03.10|
+| **[ReactQuery 마스터 하기😎 (ㄹㅇ 힘들었음..)](Archive/reactQuery사용하기.md)** <br>ReactQuery를 사용하여 공부함.  | 2025.03.10|
