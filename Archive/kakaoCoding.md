@@ -80,3 +80,6 @@ function binaryNumberList(n, arr1) {
 근데 너무 무식하게 풀었나 생각이 들기도 하고..  
 분명 다시하라하면 더 이쁘게 할 수 있을텐데 그건 나중에 하겠다.
 js 내장함수 중 `padStart`가 있는데 풀때 생각이 나질 않아서 고생조금 했다. 
+
+> 출처
+> https://tech.kakao.com/posts/344
