@@ -23,7 +23,7 @@
 | **[ReactQuery 마스터 하기😎 (ㄹㅇ 힘들었음..)](Archive/reactQuery사용하기.md)** <br>ReactQuery를 사용하여 공부함.  | 2025.03.10|
 | **[Zod + React-Hook-Form 사용하기 1차 (Zod 편)💎](Archive/Zod+React_Hook-From사용하기.md)** <br>Zod라이브러리의 사용 이유와 장점등에 대해 공부하고 Zod를 사용하여 스키마를 생성하고 이를 이용하여 유효성검증하는 법을 공부함  | 2025.03.11|
 | **[Zod + React-Hook-Form 사용하기 2차 (React-Hook-Form 편)📋](Archive/Zod+React-Hook-Form사용하기2.md)** <br>React-Hook-Form의 사용이유나 장점 등에 대해 공부하고 저번시간에 만든 스키마를 활용하여 상태관리하기  | 2025.04.07|
-
+| **[스켈레톤(Skeleton) UI 사용해보기](Archive/스켈레톤새로고침.md)** <br>스켈레톤 UI의 장단점을 공부하고 직접 사용해봄  | 2025.08.01 |
 <br />
 <br />
 
@@ -52,4 +52,4 @@
 | **['인프런 Simple Design: 25년차 개발자가 전하는 깔끔한 코드의 본질' 세미나 듣고 느낀점](Archive/밋업클린코드컨퍼런스.md)** <br>Martin Fowler님의 이론에 덛대어 코드의 중복과 구성요소 줄이기를 주제로 설명을 듣고 느낀점을 서술함  | 2025.04.18 |
 | **[AWS의 글로벌 인프라를 어케 구성하는 지 알아?](Archive/ㅁㄴㅇㄹ.md)** <br>AWS에서 글로벌인프라를 구성하는 리전, AZ, 엣지 로케이션, 리전 엣지캐시에 대해 공부함  | 2025.04.22 |
 | **['실력으로 만드는 DevOps 세미나' 듣고 느낀점](Archive/DevOps.md)** <br>DevOps 세미나를 듣고 느낀점을 서술함  | 2025.04.25 |
-| **['E2E로 알아보는 사용자 테스트 여정](Archive/E2E테스트.md)** <br>DevOps 세미나를 듣고 느낀점을 서술함  | 2025.06.27 |
+| **[E2E로 알아보는 사용자 테스트 여정](Archive/E2E테스트.md)** <br>E2E가 무엇인지 공부하고 playwright를 사용하여 장단점을 공부함  | 2025.06.27 |
